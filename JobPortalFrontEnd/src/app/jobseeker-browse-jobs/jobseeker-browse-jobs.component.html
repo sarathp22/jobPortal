@@ -1,0 +1,186 @@
+<!-- <p>jobseeker-browse-jobs works!</p> -->
+<div class="page-header">
+    <div class="container">
+    <div class="row">
+    <div class="col-lg-12">
+    <div class="inner-header">
+    <h3>Browse Job</h3>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    
+    <section class="job-browse section">
+    <div class="container">
+    <div class="row">
+    
+    <div class="col-lg-12 col-md-12 col-xs-12">
+    <form (ngSubmit)="cityFilter()">
+    <div class="wrap-search-filter row">
+    <div class="col-lg-5 col-md-5 col-xs-12">
+    <input type="text" class="form-control" name="jobTitle" #jobTitle="ngModel" placeholder="Keyword: Job Title" [(ngModel)]="keyWord" required>
+    </div>
+    <div class="col-lg-5 col-md-5 col-xs-12">
+    <input type="text" class="form-control" placeholder="Location: City" #cityName="ngModel" name="city" [(ngModel)]="city" required>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12">
+    <input type="submit" class="btn btn-common float-right" value="Search" [disabled]="!(jobTitle.valid || cityName.valid)">
+    </div>
+    </div>
+    </form> 
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-xs-12">
+
+    <div *ngFor="let data of jobs">
+    <a class="job-listings" routerLink="/jobseeker/JobDetails/{{data._id}}">
+    <div class="row">
+    <div class="col-lg-4 col-md-4 col-xs-12">
+    <div class="job-company-logo">
+    <img src="http://localhost:3000/images/{{data.workLogo}}" width="40px" height="40px" alt="">
+    </div>
+     <div class="job-details">
+    <h3>{{data.jobTitle}}</h3>
+    <span class="company-neme">
+    {{data.cname}}
+    </span>
+    </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-center">
+    <span class="btn-open">
+    {{data.nop}} Open Jobs
+    </span>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+    <div class="location">
+    <i class="lni-map-marker"></i> {{data.country}}
+    </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+    <span class="btn-full-time">{{data.jobType}}</span>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+    <span class="btn-apply" >Apply Now</span>
+    </div>
+    </div>
+    </a>
+    </div>
+
+    <!-- <a class="job-listings" href="job-details.html">
+    <div class="row">
+    <div class="col-lg-4 col-md-4 col-xs-12">
+    <div class="job-company-logo">
+    <img src="assets/img/features/img2.png" alt="">
+    </div>
+    <div class="job-details">
+    <h3>App Developer</h3>
+    <span class="company-neme">
+    AmazeSoft
+    </span>
+    </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-center">
+    <span class="btn-open">
+    7 Open Jobs
+    </span>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+    <div class="location">
+    <i class="lni-map-marker"></i> New Yourk, US
+    </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+    <span class="btn-full-time">Full Time</span>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+    <span class="btn-apply">Apply Now</span>
+    </div>
+    </div>
+    </a>
+    <a class="job-listings" href="job-details.html">
+    <div class="row">
+    <div class="col-lg-4 col-md-4 col-xs-12">
+    <div class="job-company-logo">
+    <img src="assets/img/features/img3.png" alt="">
+    </div>
+    <div class="job-details">
+    <h3>App Developer</h3>
+    <span class="company-neme">
+    AmazeSoft
+    </span>
+    </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-center">
+    <span class="btn-open">
+    7 Open Jobs
+    </span>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+    <div class="location">
+    <i class="lni-map-marker"></i> New Yourk, US
+    </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+    <span class="btn-full-time">Full Time</span>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+    <span class="btn-apply">Apply Now</span>
+    </div>
+    </div>
+    </a>
+    <a class="job-listings" href="job-details.html">
+    <div class="row">
+    <div class="col-lg-4 col-md-4 col-xs-12">
+    <div class="job-company-logo">
+    <img src="assets/img/features/img4.png" alt="">
+    </div>
+    <div class="job-details">
+    <h3>App Developer</h3>
+    <span class="company-neme"> 
+    AmazeSoft
+    </span>
+    </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-center">
+    <span class="btn-open">
+    7 Open Jobs
+    </span>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+    <div class="location">
+    <i class="lni-map-marker"></i> New Yourk, US
+    </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+    <span class="btn-full-time">Full Time</span>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+    <span class="btn-apply">Apply Now</span>
+    </div>
+    </div>
+    </a> -->
+
+    <div *ngIf="! divToggle" style="margin-top: 150px;margin-bottom: 150px;">
+
+        <h5 class="text-center"> No Jobs available </h5>
+
+    </div>
+    <!-- <div *ngIf ="! toggle" style="margin-top: 150px;margin-bottom: 150px;">
+        <h5 style="text-align: center;">No Jobs Available</h5>
+    </div> -->
+    <ul class="pagination">
+    <li class="active"><a href="#" class="btn-prev"><i class="lni-angle-left"></i> prev</a></li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li class="active"><a href="#" class="btn-next">Next <i class="lni-angle-right"></i></a></li>
+    </ul>
+    
+    </div>
+    </div>
+    </div>
+    </section>

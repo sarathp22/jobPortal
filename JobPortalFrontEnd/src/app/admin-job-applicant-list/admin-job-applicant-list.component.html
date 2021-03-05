@@ -1,0 +1,193 @@
+<!-- <p>admin-job-applicant-list works!</p> -->
+<div class="page-header">
+    <div class="container">
+    <div class="row">
+    <div class="col-lg-12">
+    <div class="inner-header">
+    <h3>Job Applications</h3>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    
+    <section class="job-browse section">
+    <div class="container">
+    <div class="row">
+    
+    <!-- <div class="col-lg-12 col-md-12 col-xs-12">
+    <div class="wrap-search-filter row">
+    <div class="col-lg-5 col-md-5 col-xs-12">
+    <input type="text" class="form-control" placeholder="Keyword: Name, Tag">
+    </div>
+    <div class="col-lg-5 col-md-5 col-xs-12">
+    <input type="text" class="form-control" placeholder="Location: City, State, Zip">
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12">
+    <button type="submit" class="btn btn-common float-right">Filter</button>
+    </div>
+    </div>
+    </div> -->
+    <div class="col-lg-4 col-md-12 col-xs-12">
+        <div class="right-sideabr">
+        <h4>Manage Account</h4>
+        <ul class="list-item">
+        <li><a routerLink="/admin/companyApproval">Company Approval</a></li>
+        <li><a routerLink="/admin/companyList">Company List</a></li>
+        <!-- <li><a href="notifications.html">Notifications <span class="notinumber">2</span></a></li>
+        <li><a class="active" href="manage-applications.html">Manage Applications</a></li>
+        <li><a href="job-alerts.html">Job Alerts</a></li> -->
+        <!-- <li><a href="change-password.html">Change Password</a></li> -->
+        <li><a (click)="logout()">Logout</a></li>
+        </ul>
+        </div>
+        </div>
+    <div class="col-lg-8 col-md-12 col-xs-12">
+
+    <div *ngFor="let data of applications">
+    <a class="job-listings" routerLink="/admin/jobseekerProfileView/{{data.jobseekerId}}/{{data._id}}">
+    <div class="row">
+    <div class="col-lg-4 col-md-4 col-xs-12">
+    <div class="job-company-logo">
+    <img src="http://localhost:3000/images/{{data.profileImage}}" width="40px" height="40px" alt="">
+    </div>
+     <div class="job-details">
+    <h3>{{data.name | uppercase}}</h3>
+    <span class="company-neme">
+    {{data.email}}
+    </span>
+    </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-center">
+    <span class="btn-open">
+    {{data.status}}
+    </span>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+    <div class="location">
+    <i class="lni-map-marker"></i> {{data.jobLocation}}
+    </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+    <span class="btn-full-time text-info">{{data.gender}}</span>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+    <!-- <span class="btn-apply" >Apply Now</span> -->
+    <span class="btn-full-time text-warning">{{data.phone}}</span>
+    </div>
+    </div>
+    </a>
+    </div>
+
+    <!-- <a class="job-listings" href="job-details.html">
+    <div class="row">
+    <div class="col-lg-4 col-md-4 col-xs-12">
+    <div class="job-company-logo">
+    <img src="assets/img/features/img2.png" alt="">
+    </div>
+    <div class="job-details">
+    <h3>App Developer</h3>
+    <span class="company-neme">
+    AmazeSoft
+    </span>
+    </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-center">
+    <span class="btn-open">
+    7 Open Jobs
+    </span>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+    <div class="location">
+    <i class="lni-map-marker"></i> New Yourk, US
+    </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+    <span class="btn-full-time">Full Time</span>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+    <span class="btn-apply">Apply Now</span>
+    </div>
+    </div>
+    </a>
+    <a class="job-listings" href="job-details.html">
+    <div class="row">
+    <div class="col-lg-4 col-md-4 col-xs-12">
+    <div class="job-company-logo">
+    <img src="assets/img/features/img3.png" alt="">
+    </div>
+    <div class="job-details">
+    <h3>App Developer</h3>
+    <span class="company-neme">
+    AmazeSoft
+    </span>
+    </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-center">
+    <span class="btn-open">
+    7 Open Jobs
+    </span>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+    <div class="location">
+    <i class="lni-map-marker"></i> New Yourk, US
+    </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+    <span class="btn-full-time">Full Time</span>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+    <span class="btn-apply">Apply Now</span>
+    </div>
+    </div>
+    </a>
+    <a class="job-listings" href="job-details.html">
+    <div class="row">
+    <div class="col-lg-4 col-md-4 col-xs-12">
+    <div class="job-company-logo">
+    <img src="assets/img/features/img4.png" alt="">
+    </div>
+    <div class="job-details">
+    <h3>App Developer</h3>
+    <span class="company-neme"> 
+    AmazeSoft
+    </span>
+    </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-center">
+    <span class="btn-open">
+    7 Open Jobs
+    </span>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+    <div class="location">
+    <i class="lni-map-marker"></i> New Yourk, US
+    </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+    <span class="btn-full-time">Full Time</span>
+    </div>
+    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+    <span class="btn-apply">Apply Now</span>
+    </div>
+    </div>
+    </a> -->
+    <div *ngIf ="! toggle" style="margin-top: 150px;margin-bottom: 150px;">
+        <h5 style="text-align: center;">No Applications</h5>
+    </div>
+    <ul class="pagination">
+    <li class="active"><a href="#" class="btn-prev"><i class="lni-angle-left"></i> prev</a></li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li class="active"><a href="#" class="btn-next">Next <i class="lni-angle-right"></i></a></li>
+    </ul>
+    
+    </div>
+    </div>
+    </div>
+    </section>
+

@@ -1,0 +1,152 @@
+<!-- <p>post-new-job works!</p> -->
+<div class="page-header">
+    <div class="container">
+    <div class="row">
+    <div class="col-lg-12">
+    <div class="inner-header">
+    <h3>Post A Job</h3>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    
+    <section class="section">
+    <div class="container">
+    <div class="row justify-content-center">
+    <div class="col-lg-9 col-md-12 col-xs-12">
+    <div class="post-job box">
+    <h3 class="job-title">Post a new Job</h3>
+    <form class="form-ad" (ngSubmit)="postJob()" #newJobForm="ngForm">
+    <div class="form-group">
+    <label class="control-label">Job Code</label>
+    <input type="text" name="jobCode" [(ngModel)]="jobPost.jobCode" class="form-control" required>
+    </div>
+    <div class="form-group">
+    <label class="control-label">Job Title</label>
+    <input type="text" class="form-control" name="jobTitle" [(ngModel)]="jobPost.jobTitle" placeholder="Write job title" required>
+    </div>
+    <div class="form-group">
+    <label class="control-label">Description</label>
+    <textarea name="description" id="" cols="30" rows="10" class="form-control" [(ngModel)]="jobPost.description" required></textarea>
+    </div>
+    <div class="form-group">
+    <label class="control-label">Email</label>
+    <input type="text" class="form-control" name="email" [(ngModel)]="jobPost.email" placeholder="Enter email address" required>
+    </div>
+    <div class="form-group">
+    <label class="control-label">Job Type</label>
+    <label class="styled-select">
+    <select name="jobType" id="" class="dropdown-product selectpicker" [(ngModel)]="jobPost.jobType" required>
+        <option value="">Select</option>
+        <option value="Fulltime">Full Time</option>
+        <option value="Parttime">Part Time</option>
+        <option value="Internship">Internship</option>
+    </select>
+    </label>
+    </div>
+    <div class="form-group">
+    <label class="control-label">Number of positions</label>
+    <input type="number" name="nop" class="form-control" name="noOfPositions" [(ngModel)]="jobPost.nop" required>
+    </div>
+    <div class="form-group">
+    <label class="control-label">Salary</label>
+    <input type="number" class="form-control" name="salary" [(ngModel)]="jobPost.salary" required>
+    </div>
+    <div class="form-group">
+    <label class="control-label">Experience</label>
+    <input type="number" class="form-control" name="experience" [(ngModel)]="jobPost.experience" required>
+    </div>
+    <div class="form-group">
+    <label class="control-label">Qualification</label>
+    <div class="search-category-container">
+        <label class="styled-select">
+    <select name="" id="" class="dropdown-product selectpicker" name="qualification" [(ngModel)]="jobPost.qualification" required>
+        <option value="">Select</option>
+        <option value="SSLC">SSLC</option>
+        <option value="PLUS TWO">PLUS TWO</option>
+        <option value="Diploma">Diploma</option>
+        <option value="B Tech">B Tech</option>
+        <option value="B Com">B Com</option>
+        <option value="BA">BA</option>
+        <option value="BCA">BCA</option>
+        <option value="B eD">B ed</option>
+        <option value="B Com">M Com</option>
+        <option value="BCA">MCA</option>
+        <option value="M Tech">M Tech</option>
+        <option value="M eD">M ed</option>
+        <option value="M Tech">PHD</option>
+        
+    </select>
+    </label>
+    </div>
+    </div>
+     <div class="form-group">
+    <label class="control-label">Industry</label>
+    <div class="search-category-container">
+        <label class="styled-select">
+        <select class="dropdown-product selectpicker" name="industry" [(ngModel)]="jobPost.industry" required>
+        <option>Select Categories</option>
+        <option value="Finance">Finance</option>
+        <option value="IT & Engineering">IT & Engineering</option>
+        <option value="Education/Training">Education/Training</option>
+        <option value="Art/Design">Art/Design</option>
+        <option value="Sale/Markting">Sale/Markting</option>
+        <option value="Healthcare">Healthcare</option>
+        <option value="Science">Science</option>
+        <option value="Food Services">Food Services</option>
+        </select>
+        </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Gender Required</label>
+        <div class="search-category-container">
+            <label class="styled-select">
+            <select class="dropdown-product selectpicker" name="genderRequired" [(ngModel)]="jobPost.genderRequired" required>
+            <option>Select</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Male or Female">Male or Female</option>
+            <option value="Other">Other</option>
+            </select>
+            </label>
+            </div>
+        </div>
+        <div class="row">
+        <div class="form-group col-md-6">
+        <label class="control-label">State</label>
+        <input type="text" class="form-control" name="country" [(ngModel)]="jobPost.country" required>
+        </div>
+        <div class="form-group col-md-6">
+        <label class="control-label">City</label>
+        <input type="text" class="form-control" name="city" [(ngModel)]="jobPost.city">
+        </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Application Deadline Date</label>
+            <input type="date" class="form-control" name="experience" name="deadlineDate" [(ngModel)]="jobPost.deadlineDate" required>
+            </div>
+            <div class="form-group">
+            <label class="control-label">Required skills <span class="text-center text-danger">(Skills seperate with comma*)</span></label>
+            <textarea name="" id="" cols="30" rows="5" class="form-control" name="reqSkills" [(ngModel)]="jobPost.reqSkills" required></textarea>
+            </div>
+            
+        <div class="form-group">
+        <label class="control-label">Education + Experience</label>
+        <textarea name="" id="" cols="30" rows="6" class="form-control" name="eduExp" [(ngModel)]="jobPost.eduExp" required></textarea>
+        </div>
+        <div class="form-group">
+            <label>Update Job Logo</label> 
+            <input type="file" name="workLogo" class="form-control pt-2 pl-4" (change)="workLogo($event)">
+        </div>
+
+        <input type="submit" class="btn btn-common" value="Submit your job" [disabled]="newJobForm.form.invalid">
+    </form>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>

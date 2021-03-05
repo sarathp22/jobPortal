@@ -1,0 +1,381 @@
+<!-- <p>profile works!</p> -->
+<div class="page-header">
+    <div class="container">
+    <div class="row">
+    <div class="col-lg-12">
+    <div class="inner-header">
+    <h3>Profile</h3>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    
+    <div id="content">
+    <div class="container">
+    <div class="row">
+
+    <!-- <app-left-nav-jobseeker></app-left-nav-jobseeker> -->
+
+    <div class="col-md-4 col-sm-4 col-xs-12">
+    <div class="right-sideabr">
+    <h4>Manage Account</h4>
+    <ul class="list-item">
+    <li><a href="http://localhost:3000/images/{{userData.resume}}" target="_blank">My Resume</a></li>
+    <li><a routerLink="/jobseeker/browseJobs/a">Browse Jobs</a></li>
+    <!-- <li><a href="notifications.html">Notifications <span class="notinumber">2</span></a></li> -->
+    <!-- <li><a href="manage-applications.html">Manage Applications</a></li> -->
+    <!-- <li><a href="job-alerts.html">Job Alerts</a></li> -->
+    <li><a routerLink="/jobseeker/changePassword">Change Password</a></li>
+    <li><a (click)="logout()">Logout</a></li>
+    </ul>
+    </div>
+    </div>
+
+
+
+    
+    
+    <div class="col-md-8 col-sm-8 col-xs-12">
+    <div class="job-alerts-item">
+    <h3 class="alerts-title">Profile</h3>
+    <form class="form" (ngSubmit)="update()" #jobseekerprofile="ngForm">
+        <div class="row">
+            <!-- <div class="col-md-6 m-auto">
+
+            </div> -->
+            <div class="col-md-12">
+                <img src="../../assets/img/avatar1.png" width="150px" height="150px" alt="profile pic" style="float: right;" *ngIf="userData.profileImage==''">
+                <img src="http://localhost:3000/images/{{userData.profileImage}}" width="150px" height="150px" alt="profile pic" style="float: right;" *ngIf="userData.profileImage!=''">
+            </div>
+        </div>
+    <div class="form-group is-empty">
+        <div class="row my-3 align-items-center">
+            
+            <div class="col-xs-6 col-sm-6 col-md-3">
+                <p>Name:</p>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-9">
+                <p>{{userData?.fname}}</p>
+            </div>
+            
+        </div>
+    
+    </div>
+
+    <div class="form-group is-empty">
+        <div class="row my-3 align-items-center">
+            
+            <div class="col-xs-3 col-sm-3 col-md-3 m m-auto">
+                <p>Contact:</p>
+            </div>
+            <div class="col-xs-9 col-sm-9 col-md-9">
+                <p>{{userData?.phone}}</p>
+            </div>
+            
+        </div>
+    
+    </div>
+
+    <div class="form-group is-empty">
+        <div class="row my-3 align-items-center">
+            
+            <div class="col-xs-3 col-sm-3 col-md-3 m m-auto">
+                <p>Email:</p>
+            </div>
+            <div class="col-xs-9 col-sm-9 col-md-9">
+                <p>{{userData?.email}}</p>
+            </div>
+            
+        </div>
+    
+    </div>
+
+    <div class="form-group is-empty">
+        <div class="row my-3 align-items-center">
+            
+            <div class="col-xs-3 col-sm-3 col-md-3 m m-auto">
+                <p>Address:</p>
+            </div>
+            <div class="col-xs-9 col-sm-9 col-md-9">
+               <pre>{{userData?.address}}</pre>
+            </div>
+            
+        </div>
+    </div>
+     <!-- dateOfBirth -->
+     <div class="form-group is-empty">
+        <div class="row my-3 align-items-center">
+            
+            <div class="col-xs-3 col-sm-3 col-md-3 m m-auto">
+                <p>Date of birth:</p>
+            </div>
+            <div class="col-xs-9 col-sm-9 col-md-9">
+               <p>{{userData?.dateOfBirth | date}}</p>
+            </div>
+            
+        </div>
+    </div>
+    <div class="form-group is-empty">
+      
+            <h6 class="text-center my-5"><b> Your Qualifications</b></h6>
+            <div class="row my-3">
+                <div class="col-md-2">
+                        
+                </div>
+                <div class="col-md-4 m-auto">
+                    <p><b>Qualification</b> </p>
+                </div>
+                <div class="col-md-4">
+                    <p ><b>University</b> </p>
+                </div>
+                <div class="col-md-2">
+                    <p><b>Marks</b> </p>
+                </div>
+            </div>
+      
+
+        <!-- *ngFor here -->
+
+            <div class="row my-3" *ngFor="let data of userData.qualification">
+                <div class="col-md-2">
+                        
+                </div>
+                <div class="col-md-4 m-auto">
+                    <p>{{data.qualification}}</p>
+                </div>
+                <div class="col-md-4">
+                    <p>{{data.university}}</p>
+                </div>
+                <div class="col-md-2">
+                    {{data.marks}}
+                </div>
+            </div>
+            <div id="div" class="showInputQual row">
+                
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-common my-3" style="float: right;" (click)="addQual()">Add</button>
+                </div>
+    
+            </div>
+
+
+          
+    </div>
+
+    <div class="form-group is-empty">
+        <h6 class="text-center mb-4"><b>Languages Known</b></h6>
+
+        <div class="row mb-3">
+            <div class=" col-md-7">
+                
+            </div>
+            <div class="col-md-5">
+                <b><span class="mx-2">Read</span></b>
+                <b><span class="mx-1">Write</span></b>
+                <b><span class="mx-1">Speak</span></b>
+            </div>
+        </div>
+
+            <div class="row">
+                <div class=" col-md-7">
+                    <p class="mb-2">English:</p>
+                </div> 
+                <div class="col-md-5">
+                    <input type="checkbox" name="enRead" value="true" disabled [(ngModel)]="userData.enRead" id="" class="mx-3 mb-4">
+                    <input type="checkbox" name="enWrite" value="true" disabled [(ngModel)]="userData.enWrite" id="" class="mx-3 mb-4">
+                    <input type="checkbox" name="enSpeak" value="true" disabled [(ngModel)]="userData.enSpeak" id="" class="mx-3 mb-4">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-7">
+                    <p>Hindi:</p>
+                </div>
+                <div class="col-md-5">
+                    <input type="checkbox" name="hiRead" value="true" disabled [(ngModel)]="userData.hiRead" id="" class="mx-3">
+                    <input type="checkbox" name="hiWrite" value="true" disabled [(ngModel)]="userData.hiWrite" id="" class="mx-3">
+                    <input type="checkbox" name="hiSpeak" value="true" disabled [(ngModel)]="userData.hiSpeak" id="" class="mx-3">
+                </div>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <p>Mother tongue:</p>
+                </div>
+                <div class="col-md-4">
+                    <p class="text-center">{{userData.moLang}}</p>
+                    
+                </div>
+                <div class="col-md-5 form-group mt-3">
+                    <input type="checkbox" name="moRead" value="true" disabled [(ngModel)]="userData.moRead" id="" class="mx-3">
+                    <input type="checkbox" name="moWrite" value="true" disabled [(ngModel)]="userData.moWrite" id="" class="mx-3">
+                    <input type="checkbox" name="moSpeak" value="true" disabled [(ngModel)]="userData.moSpeak" id="" class="mx-3">
+                </div>
+                
+            </div>
+    </div>
+
+    <div class="form-group is-empty">
+
+        <div>
+            <div>
+            <h6 class="text-center my-5"><b> Your Work Experience</b></h6>
+            <div class="row my-3">
+                
+                <div class="col-md-4 m-auto">
+                    <p > <b>Company</b> </p>
+                </div>
+                <div class="col-md-4">
+                    <p ><b>Role</b>  </p>
+                </div>
+                <div class="col-md-2 m-auto">
+                    <p><b>From</b> </p>
+                </div>
+                <div class="col-md-2 m-auto">
+                      <p><b>To</b> </p>  
+                </div>
+            </div>
+        </div>
+    
+     <!-- fetch database data here -->
+    
+            <div class="row my-3" *ngFor="let data of userData.workExperience let i=index">
+                <div class="col-md-4">
+                    <p>{{data.companyName}}</p>
+                </div>
+                <div class="col-md-4 m-auto">
+                    <p>{{data.role}}</p>
+                </div>
+                <div class="col-md-2">
+                    <p>{{data.from | date}}</p>
+                </div>
+                <div class="col-md-2">
+                    <p>{{data.to | date}}</p>
+                </div>
+            </div>
+    
+            <div id="div" class="showInputWork row">
+                
+            </div>
+    
+    
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-common my-3" style="float: right;" (click)="addWork()">Add</button>
+                </div>
+    
+            </div>
+        
+        </div>
+
+    </div>
+    <div class="form-group is-empty">
+
+        <div class="row my-3">
+            <div class="col-md-2">
+                    
+            </div>
+            <div class="col-md-4 m-auto">
+                <p>Change Job category:</p>
+            </div>
+            <div class="col-md-4">
+               
+                <select name="jobCategory" id="" class="form-control" [(ngModel)]="userData.jobCategory" required>
+                    <option value="">Select</option>
+                    <option value="Design, Art & multimedia">Design, Art & multimedia</option>
+                    <option value="Education training">Education training</option>
+                    <option value="It development">It development</option>
+                    <option value="Human resource">Human resource</option>
+                    <option value="Tele-communications">Tele-communications</option>
+                    <option value="Restaurant/food service">Restaurant/food service</option>
+                    <option value="Construction/facilities">Construction/facilities</option>
+                    <option value="Health">Health</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                    
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-group is-empty">
+
+        <div class="row my-3">
+            <div class="col-md-2">
+                    
+            </div>
+            <div class="col-md-4 m-auto">
+                <p>Change Job Location:</p>
+            </div>
+            <div class="col-md-4">
+                <select name="jobLocation" id="" class="form-control " [(ngModel)]="userData.jobLocation" required>
+                    <option value="">Select</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Tamilnadu">Tamilnadu</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                    
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="form-group is-empty">
+
+        <div class="row my-3 align-items-center">
+            <div class="col-md-2">
+                    
+            </div>
+            <div class="col-md-4 m-auto">
+                <p>Update Profile Image:</p>
+            </div>
+            <div class="col-md-4">
+                <input type="file" name="profilePic" class="form-control pt-2 pl-4" (change)="profilePicChange($event)">
+            </div>
+            <div class="col-md-2">
+                    
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-group is-empty">
+
+        <div class="row my-3 align-items-center">
+            <div class="col-md-2">
+                    
+            </div>
+            <div class="col-md-4 m-auto">
+                <p>Update Resume:</p>
+            </div>
+            <div class="col-md-4">
+                <input type="file" name="resume" class="form-control pt-2 pl-4" (change)="resumeUpload($event)">
+            </div>
+            <div class="col-md-2">
+                    
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <input  type="submit" class="btn btn-common" value="Save Change" [disabled]="jobseekerprofile.form.invalid">
+    </form>
+    </div>
+    </div>
+    
+    
+    
+    </div>
+    </div>
+    </div>

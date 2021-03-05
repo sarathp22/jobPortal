@@ -1,0 +1,361 @@
+<!-- <p>profile-complete2 works!</p> -->
+<div class="page-header">
+    <div class="container">
+    <div class="row">
+    <div class="col-lg-12">
+    <div class="inner-header">
+    <h3>Complete Profile</h3>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    
+    <div id="content">
+    <div class="container">
+    <div class="row">
+    
+    <div class="col-md-8 col-sm-8 col-xs-12 m-auto">
+    <div class="job-alerts-item">
+    <h3 class="alerts-title">Complete Profile</h3>
+    <form class="form" (ngSubmit)="update2()" #profileComplete2="ngForm">
+    <!-- <div class="form-group is-empty">
+        <div class="row my-3 align-items-center">
+            
+            <div class="col-xs-3 col-sm-3 col-md-3 m m-auto">
+                <p>Name:</p>
+            </div>
+            <div class="col-xs-9 col-sm-9 col-md-9">
+                <p>{{userData?.fname}}</p>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="form-group is-empty">
+        <div class="row my-3 align-items-center">
+        <div class="col-xs-3 col-sm-3 col-md-3 m-auto">
+            <p>Gender:</p>
+        </div>
+        <div class="col-xs-9 col-sm-9 col-md-9 mt-1">
+            Male:&nbsp;<input type="radio" value="male" name="gender" id="" [(ngModel)]="userData.gender">
+            Female:&nbsp;<input type="radio" value="female" name="gender" id="" [(ngModel)]="userData.gender">
+            Other:&nbsp;<input type="radio" name="gender" value="other" id="" [(ngModel)]="userData.gender">
+        </div>
+        </div>
+    </div>
+    <div class="form-group is-empty">
+        <div class="row my-3 align-items-center">
+            
+            <div class="col-xs-3 col-sm-3 col-md-3 m-auto">
+                <p>Phone Number:</p>
+            </div>
+            <div class="col-xs-9 col-sm-9 col-md-9">
+                <p>{{userData?.phone}}</p>
+            </div>
+            
+        </div>
+    </div>
+    <div class="form-group is-empty">
+        <div class="row my-3 align-items-center">
+            
+            <div class="col-xs-3 col-sm-3 col-md-3 m-auto">
+                <p>Address:</p>
+            </div>
+            <div class="col-xs-9 col-sm-3 col-md-9">
+                <textarea name="address" id="" cols="30" rows="4" class="form-control " [(ngModel)]="userData.address"></textarea>
+            </div>
+            
+        </div>
+    </div>
+    <div class="form-group is-empty">
+        <div class="row my-3 align-items-center">
+            
+            <div class="col-sm-3 col-md-3 m-auto">
+                <p>Upload Profile Image:</p>
+            </div>
+            <div class="col-sm-9 col-md-9">
+                <input type="file" class="form-control pt-2 pl-5" name="profilePic" (change)="profilePicChange($event)"/>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="form-group is-empty">
+        <div class="row my-3 align-items-center">
+            
+            <div class="col-sm-3 col-md-3 m-auto">
+                <p>Date of birth:</p>
+            </div>
+            <div class="col-sm-9 col-md-9">
+                <input type="date" class="form-control" name="dateOfBirth" [(ngModel)]="userData.dateOfBirth">
+            </div>
+            
+        </div>
+    </div> -->
+
+    <div class="form-group is-empty">
+                <div class="row align-items-center">
+                    <div class="col-md-3 my-3">
+                        <p >Select Job Category: </p>
+                    </div>
+                    <div class="col-md-9 my-3">
+                        <select name="jobCategory" id="" class="form-control w-50" [(ngModel)]="userData.jobCategory" autofocus required>
+                            <option value="">Select</option>
+                            <option value="Design, Art & multimedia">Design, Art & multimedia</option>
+                            <option value="Education training">Education training</option>
+                            <option value="It development">It development</option>
+                            <option value="Human resource">Human resource</option>
+                            <option value="Tele-communications">Tele-communications</option>
+                            <option value="Restaurant/food service">Restaurant/food service</option>
+                            <option value="Construction/facilities">Construction/facilities</option>
+                            <option value="Health">Health</option>
+                        </select>
+                    </div>
+                </div>
+    </div>
+
+
+    <div class="form-group is-empty">
+        <div class="row my-3 align-items-center">
+            
+            <div class="col-sm-3 col-md-3 ">
+                <p class="mt-3">Select Job Location: </p>
+            </div>
+            <div class="col-sm-9 col-md-9 mt-3">
+                <select name="jobLocation" id="" class="form-control w-50" [(ngModel)]="userData.jobLocation" required>
+                    <option value="">Select</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Tamilnadu">Tamilnadu</option>
+                </select>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="form-group is-empty">
+
+
+
+<label for="exampleDataList" class="form-label">Skills</label>
+<select  id="datalistOptions" name="skills" class="form-select form-control" size="3" aria-label="size 3 select example" multiple [(ngModel)]="userData.skills"> 
+  <option value="Php"> Php</option>
+  <option value="Java">Java </option>
+  <option value="Javascript"> Javascript</option>
+  <option value="Css">Css </option>
+  </select>
+
+   
+
+            <!-- <p class="text-center my-3"><b>Skills</b></p>
+            <div class="row my-3 align-items-center">
+                
+                <div class="col-sm-3 col-md-3 m-auto">
+                    <p>Skill:</p>
+                </div>
+                <div class="col-sm-9 col-md-9">
+                    <input type="text" name="" id="" class="form-control w-75" name="skill"  (keyup)="search($event)" (keydown)="search($event)">
+                    <div *ngIf="toggle()">
+                    <ul  *ngFor="let item of dataNew" >
+                        <li>{{item}}}</li>
+                    </ul>
+                </div>
+                </div>
+                
+            </div>
+            <div class="row my-3 align-items-center">
+                
+                <div class="col-sm-3 col-md-3 m-auto">
+                
+                </div>
+                
+            
+                
+                
+            </div> -->
+
+        <div class="row" class="my-5">
+            <div class="col-md-12" *ngFor= "let data of skillsData">
+                <span class="text-center my-5 mx-2">{{data}}</span>
+            </div>
+        </div>
+
+        <!-- <div class="form-group is-empty">
+            <div class="row">
+            <div class="col-md-12">
+                <button class="btn btn-common my-3" style="float: right;">Add</button>
+            </div>
+        </div>
+        </div> -->
+
+        <div class="form-group is-empty">
+            <h6 class="text-center mb-4"><b>Languages Known</b></h6>
+    
+            <div class="row mb-3">
+                <div class=" col-md-7">
+                    
+                </div>
+                <div class="col-md-5">
+                    <b><span class="mx-2">Read</span></b>
+                    <b><span class="mx-1">Write</span></b>
+                    <b><span class="mx-1">Speak</span></b>
+                </div>
+            </div>
+    
+                <div class="row">
+                    <div class=" col-md-7">
+                        <p class="mb-2">English:</p>
+                    </div> 
+                    <div class="col-md-5">
+                        <input type="checkbox" name="enRead" value="true"  [(ngModel)]="userData.enRead" id="" class="mx-3 mb-4">
+                        <input type="checkbox" name="enWrite" value="true"  [(ngModel)]="userData.enWrite" id="" class="mx-3 mb-4">
+                        <input type="checkbox" name="enSpeak" value="true"  [(ngModel)]="userData.enSpeak" id="" class="mx-3 mb-4">
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-md-7">
+                        <p>Hindi:</p>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="checkbox" name="hiRead" value="true"  [(ngModel)]="userData.hiRead" id="" class="mx-3">
+                        <input type="checkbox" name="hiWrite" value="true"  [(ngModel)]="userData.hiWrite" id="" class="mx-3">
+                        <input type="checkbox" name="hiSpeak" value="true"  [(ngModel)]="userData.hiSpeak" id="" class="mx-3">
+                    </div>
+                </div>
+    
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <p>Mother tongue:</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select name="moLang" id="" class="form-control form-group" [(ngModel)]="userData.moLang">
+                            <option value="">Select Language</option>
+                            <option value="Malayalam">Malayalam</option>
+                            <option value="Kannada">Kannada</option>
+                            <option value="Telugu">Telugu</option>
+                            <option value="Tamil">Tamil</option>
+                            
+                        </select>
+                        
+                    </div>
+                    <div class="col-md-5 form-group mt-3">
+                        <input type="checkbox" name="moRead" value="true"  [(ngModel)]="userData.moRead" id="" class="mx-3">
+                        <input type="checkbox" name="moWrite" value="true"  [(ngModel)]="userData.moWrite" id="" class="mx-3">
+                        <input type="checkbox" name="moSpeak" value="true"  [(ngModel)]="userData.moSpeak" id="" class="mx-3">
+                    </div>
+                    
+                </div>
+        </div>
+
+
+        <div class="form-group is-empty" *ngIf="userData.workExperience.length == 0">
+
+            <h6 class="text-center mb-4"><b>Work Experience</b></h6>
+            
+
+            <div class="row my-3">
+                <div class=" col-md-3">
+                    <b class="my-3 text-center">Company Name</b>
+                   <input type="text" name="cName" id="cName0" class="form-control text-center" >
+                </div>
+                <div class=" col-md-3">
+                    <b class="my-3 text-center">Role</b>
+                    <input type="text" name="jRole" id="jRole0" class="form-control text-center">
+                </div>
+                <div class=" col-md-3">
+                    <b class="my-3 text-center">From</b>
+                    <input type="date" name="from" id="from0" class="form-control text-center">
+                </div>
+                <div class=" col-md-3 ">
+                    <b class="my-3 text-center">To</b>
+                    <input type="date" name="to" id="to0" class="form-control text-center">
+                </div>
+            </div>
+
+            <div id="div" class="showInputField">
+                
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-common my-3" style="float: right;" (click)="add()">Add</button>
+                </div>
+            </div>
+           
+
+        </div>
+
+
+
+        <div class="form-group is-empty" *ngIf="userData.workExperience.length != 0">
+
+            <h6 class="text-center py-4"><b>Work Experience</b></h6>
+            <div class="row">
+                <div class=" col-md-3 text-center">
+                    <b class="my-3 text-center">Company Name</b>
+                </div>
+                <div class=" col-md-3 text-center">
+                    <b class="my-3 text-center">Role</b>
+                </div>
+                <div class=" col-md-3 text-center">
+                    <b class="my-3 text-center">From</b>
+                </div>
+                <div class=" col-md-3 text-center">
+                    <b class="my-3 text-center">To</b>
+                </div>
+            </div>
+
+            <div class="row  my-3" *ngFor="let data of userData.workExperience let i=index">
+                <div class=" col-md-3">
+                   <input type="text" name="cName" id="cName{{i}}" class="form-control" [value]="data.companyName">
+                </div>
+                <div class=" col-md-3">
+                    <input type="text" name="jRole" id="jRole{{i}}" class="form-control" [value]="data.role">
+                </div>
+                <div class=" col-md-3">
+                    <input type="date" name="from" id="from{{i}}" class="form-control" [value]="data.from">
+                </div>
+                <div class=" col-md-3 ">
+                    <input type="date" name="to" id="to{{i}}" class="form-control" [value]="data.to">
+                </div>
+            </div>
+
+            <div id="div" class="showInputField">
+                
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-common my-3" style="float: right;" (click)="add()">Add</button>
+                </div>
+            </div>
+            
+
+        </div>
+
+
+        
+
+
+
+
+
+    </div>
+    <div>
+    <input type="submit" class="btn btn-common m-auto" value="Submit" [disabled]="profileComplete2.form.invalid">
+    </div>
+    </form>
+    </div>
+    </div>
+    
+    
+    
+    </div>
+    </div>
+    </div>
+
+    <!-- <div id="div" class="showInputField">
+                
+    </div> -->

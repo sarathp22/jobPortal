@@ -1,0 +1,191 @@
+<!-- <p>admin-company-list works!</p> -->
+<div class="page-header">
+    <div class="container">
+    <div class="row">
+    <div class="col-lg-12">
+    <div class="inner-header">
+    <h3>Employer List</h3>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    
+    <div id="content">
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-md-12 col-xs-12">
+            <div class="right-sideabr">
+            <h4>Manage Account</h4>
+            <ul class="list-item">
+            <li><a routerLink="/admin/companyApproval">Company Approval</a></li>
+            <li><a routerLink="/admin/companyList">Company List</a></li>
+            <!-- <li><a href="notifications.html">Notifications <span class="notinumber">2</span></a></li>
+            <li><a class="active" href="manage-applications.html">Manage Applications</a></li>
+            <li><a href="job-alerts.html">Job Alerts</a></li> -->
+            <!-- <li><a href="change-password.html">Change Password</a></li> -->
+            <li><a (click)="logout()">Logout</a></li>
+            </ul>
+            </div>
+            </div>
+    <div class="col-lg-8 col-md-12 col-xs-12">
+    <div class="job-alerts-item">
+    <h3 class="alerts-title">Employer List</h3>
+    <div class="applications-content" *ngFor="let data of employers">
+    <div class="row">
+    
+    <div class="col-md-4">
+    <div class="thums">
+    <a routerLink="/admin/companyProfile/{{data._id}}">
+    <img src="http://localhost:3000/images/{{data.logoImage}}" alt="">
+    </a>    
+    </div>
+    <a routerLink="/admin/companyProfile/{{data._id}}" >
+    <h3>{{data.cname}}</h3>
+    <span>{{data.companyCategory}}</span>
+    </a>
+    </div>
+    <div class="col-md-3">
+    <a routerLink="/admin/companyProfile/{{data._id}}" >
+    <p><span class="full-time"><i class="lni lni-phone mr-1"></i>{{data.phone}}</span></p>
+    </a>
+    </div>
+    <div class="col-md-5">
+    <a routerLink="/admin/companyProfile/{{data._id}}" >
+    <p><i class="lni lni-envelope mr-1 text-info"></i>{{data.email}}</p>
+    </a>
+    </div>
+    <!-- <div class="col-md-2">
+    <a routerLink="/admin/companyProfile/{{data._id}}">
+    <p>{{data.email}}</p>
+    </a>
+    </div> -->
+   
+    </div>
+    </div>
+
+
+
+    
+    <!-- <div class="applications-content">
+    <div class="row">
+    <div class="col-md-4">
+    <div class="thums">
+    <img src="assets/img/jobs/img-1.jpg" alt="">
+    </div>
+    <h3>Front-end developer needed</h3>
+    <span>Quick Studio</span>
+    </div>
+    <div class="col-md-3">
+    <p><span class="full-time">Full-Time</span></p>
+    </div>
+    <div class="col-md-3">
+    <p>Nov 14th, 2017</p>
+    </div>
+    <div class="col-md-2">
+    <p>Interviewed</p>
+    </div>
+    </div>
+    </div>
+    <div class="applications-content">
+    <div class="row">
+    <div class="col-md-4">
+    <div class="thums">
+    <img src="assets/img/jobs/img-1.jpg" alt="">
+    </div>
+    <h3>We're looking for an Art Director</h3>
+    <span>Quick Studio</span>
+    </div>
+    <div class="col-md-3">
+    <p><span class="part-time">Part-Time</span></p>
+    </div>
+    <div class="col-md-3">
+    <p>Nov 14th, 2017</p>
+    </div>
+    <div class="col-md-2">
+    <p>Completed</p>
+    </div>
+    </div>
+    </div>
+    <div class="applications-content">
+    <div class="row">
+    <div class="col-md-4">
+    <div class="thums">
+    <img src="assets/img/jobs/img-1.jpg" alt="">
+    </div>
+    <h3>Web designer needed</h3>
+    <span>Quick Studio</span>
+    </div>
+    <div class="col-md-3">
+    <p><span class="full-time">Full-Time</span></p>
+    </div>
+    <div class="col-md-3">
+    <p>Nov 14th, 2017</p>
+    </div>
+    <div class="col-md-2">
+    <p>Completed</p>
+    </div>
+    </div>
+    </div>
+    <div class="applications-content">
+    <div class="row">
+    <div class="col-md-4">
+    <div class="thums">
+    <img src="assets/img/jobs/img-1.jpg" alt="">
+    </div>
+    <h3>Looking for a Project Leader</h3>
+    <span>Quick Studio</span>
+    </div>
+    <div class="col-md-3">
+    <p><span class="full-time">Full-Time</span></p>
+    </div>
+    <div class="col-md-3">
+    <p>Nov 14th, 2017</p>
+    </div>
+    <div class="col-md-2">
+    <p>Interviewed</p>
+    </div>
+    </div>
+    </div>
+    <div class="applications-content">
+    <div class="row">
+    <div class="col-md-4">
+     <div class="thums">
+    <img src="assets/img/jobs/img-1.jpg" alt="">
+    </div>
+    <h3>We're hiring an fullstack designer</h3>
+    <span>Quick Studio</span>
+    </div>
+    <div class="col-md-3">
+    <p><span class="part-time">Part-Time</span></p>
+    </div>
+    <div class="col-md-3">
+    <p>Nov 14th, 2017</p>
+    </div>
+    <div class="col-md-2">
+    <p>Shortlisted</p>
+    </div>
+    </div>
+    </div>
+    <br> -->
+    <div *ngIf ="! toggle" style="margin-top: 150px;margin-bottom: 150px;">
+        <h5 style="text-align: center;">No Applications</h5>
+    </div>
+    <ul class="pagination">
+    <li class="active"><a href="#" class="btn-prev"><i class="lni-angle-left"></i> prev</a></li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li class="active"><a href="#" class="btn-next">Next <i class="lni-angle-right"></i></a></li>
+    </ul>
+    
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
